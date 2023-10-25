@@ -3,6 +3,7 @@ import styles from "./post.module.css";
 import { Form } from "@remix-run/react";
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { frmDataToString } from "~/assets/helper/form-data-converter";
+import { createPost } from "~/models/post.server";
 
 export const meta: MetaFunction = () => {
   return [{ title: "Search Embed - Home" }, { name: "description", content: "Welcome to Remix!" }];
@@ -10,8 +11,10 @@ export const meta: MetaFunction = () => {
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
-  const title = frmDataToString(formData.get("title"))
-  const content = frmDataToString(formData.get("content"))
+  const title = frmDataToString(formData.get("title"));
+  const content = frmDataToString(formData.get("content"));
+
+  createPost({ title, content });
 
   return redirect("/index");
 };
