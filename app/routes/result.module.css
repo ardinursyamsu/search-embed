@@ -1,0 +1,103 @@
+.main {
+  display: flex;
+  height: 100vh;
+  padding: 0px 120px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--Background, #f1efef);
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.searchbox {
+  display: flex;
+  height: 100px;
+  padding: 0px 60px;
+  align-items: center;
+  gap: 40px;
+  align-self: stretch;
+  background: var(--accent-2, #7d7c7c);
+}
+
+.search {
+  height: 40px;
+  padding: 0px 10px;
+  flex: 1 0 0;
+  border-radius: 8px;
+  background: #dbdbdb;
+}
+
+.btnsearch {
+  display: flex;
+  height: 44px;
+  padding: 23px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--Primary-Button, #4681f4);
+  color: var(--Background, #f1efef);
+  /* Element Text emphasis */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-family: "Sarala";
+}
+
+.resultbox {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+  background: var(--Background, #f1efef);
+}
+
+.result {
+  display: flex;
+  padding: 21px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid var(--accent-1, #ccc8aa);
+}
+
+.resulttitle {
+  color: #000;
+  /* Title */
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Bebas Neue";
+}
+
+.contentresult {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.subtitleresult {
+  flex: 1 0 0;
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Sarala";
+}
