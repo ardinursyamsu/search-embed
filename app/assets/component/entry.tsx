@@ -1,7 +1,9 @@
 import { Link } from "@remix-run/react";
 import styles from "./entry.module.css";
+import { useNavigate } from "@remix-run/react";
 
 export default function Entry(props: any) {
+  const navigate = useNavigate();
   return (
     <div className={styles.entry}>
       <div className={styles.content}>
@@ -9,7 +11,9 @@ export default function Entry(props: any) {
         <div className={styles.subtitle}>{!!props.subtitle ? props.subtitle : ""}</div>
       </div>
       <div className={styles.action}>
-          <Link to={props.id} className={styles.btnsubmit}>Edit</Link>
+        <button className={styles.btnsubmit} onClick={() => navigate(props.id)}>
+          Edit
+        </button>
         <button className={styles.btndelete}>Delete</button>
       </div>
     </div>

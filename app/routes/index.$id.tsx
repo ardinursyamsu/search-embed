@@ -4,7 +4,7 @@ import { Form, useLoaderData } from "@remix-run/react";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { frmDataToString } from "~/assets/helper/form-data-converter";
 import { createEmbed } from "../assets/helper/sentence-embed";
-import { createPost, getPostData } from "~/models/post.server";
+import { createPost, getPostData, updateEmbedPostData } from "~/models/post.server";
 import type { Tensor } from "@tensorflow/tfjs";
 import { useState } from "react";
 
@@ -21,8 +21,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const embed_vector = (await createEmbed(title)) as unknown;
   const vector_result = embed_vector as Tensor;
 
-  console.log(vector_result.arraySync().toString());
-
+  const dbResult = await updateEmbedPostData(id, vector_result);
+  console.log("Number of row(s) affected:", dbResult)
   return redirect("/index");
 };
 
@@ -59,7 +59,7 @@ export default function EditPost() {
             <div className={styles.titletext}>Title</div>
           </div>
           <div className={styles.titleinputcontainer}>
-            <input type="text" name="title" className={styles.titleinput} value={postData.title} onChange={handleTitleChange} />
+            <input type="text" name="title" className={styles.titleinput} value={title} onChange={handleTitleChange} />
           </div>
         </div>
         <div className={styles.rowcontent}>
@@ -67,10 +67,10 @@ export default function EditPost() {
             <div className={styles.rowcontenttext}>content</div>
           </div>
           <div className={styles.contentinputcontainer}>
-            <textarea name="content" className={styles.contentinput} value={postData.content} onChange={handleContentChange}/>
+            <textarea name="content" className={styles.contentinput} value={content} onChange={handleContentChange}/>
           </div>
         </div>
-        <input type="hidden" value={postData.id} />
+        <input type="hidden" value={postData.id} name="id"/>
         <div className={styles.rowbutton}>
           <button type="submit" className={styles.btnsubmit}>
             Submit

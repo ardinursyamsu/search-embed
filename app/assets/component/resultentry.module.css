@@ -1,0 +1,42 @@
+.result {
+  display: flex;
+  padding: 21px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid var(--accent-1, #ccc8aa);
+}
+
+.resulttitle {
+  color: #000;
+  /* Title */
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Bebas Neue";
+  text-decoration: none;
+}
+
+.resulttitle:hover {
+  color: #9d8b24;
+}
+
+.contentresult {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.subtitleresult {
+  flex: 1 0 0;
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Sarala";
+}
