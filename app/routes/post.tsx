@@ -14,7 +14,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const title = frmDataToString(formData.get("title"));
   const content = frmDataToString(formData.get("content"));
 
-  createPost({ title, content });
+  await createPost({ title, content });
 
   return redirect("/index");
 };
